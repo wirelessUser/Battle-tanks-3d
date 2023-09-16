@@ -17,8 +17,8 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
     public float currentChaseDistance;
     public float patrolSpeed;
  
-    private Transform cubeLocator;  // Suppose if i need this Cube in all states Scripts of Enemy Tank then Should ineed to Write it inside the EnemeyTank Service Singleton and Get it from There
-                                    // in all  Other Scripts,Intead of writing it again and again in Every State Script of the Enemy  ? 
+    private Transform cubeLocator;  
+                                   
     public override void OnEnemyEnterState()
     {
         base.OnEnemyEnterState();
@@ -28,10 +28,7 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
         
 
     }
-    //public override void InitiAlizePlayer()
-    //{
-    //    base.InitiAlizePlayer();
-    //}
+  
 
     public override void OnEnemyExitState()
     {

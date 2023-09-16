@@ -26,10 +26,7 @@ public class EnemyChasingState : EnemyTankStates, IGetComponentsInAwake
        
     }
 
-    //public override void InitiAlizePlayer()
-    //{
-    //    base.InitiAlizePlayer();
-    //}
+ 
     public override void Update()
     {
         base.Update();

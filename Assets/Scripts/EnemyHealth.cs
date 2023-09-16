@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour,ITakeDamage
     private void OnEnable()
     {
       
-            Debug.Log("Calling OnEnable() enemy Event.....");
+           
             EventManager<PlayerTankSpawner>.Instance.onPlayerDeath += Death;
         
     }
@@ -37,7 +37,7 @@ public class EnemyHealth : MonoBehaviour,ITakeDamage
     private void OnDisable()
     {
       
-            Debug.Log("Calling OnDisable() enemy Event.....");
+           
       PlayerTankSpawner.Instance.onPlayerDeath -= Death;
         
     }

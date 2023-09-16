@@ -28,10 +28,7 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
       
     }
 
-    //public override void InitiAlizePlayer()
-    //{
-    //    base.InitiAlizePlayer();
-    //}
+
 
     public  void   InitializeVariables()
     {
@@ -69,9 +66,8 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
         transform.LookAt(playerTransform);
 
        
-        enemyShootingBehaviour.ShootBullet();   // Doubt-- Here My Enemy Atack State is Calling that *ShootBullet(); Mthod from the "EnemyShootingBehaviour.cs" Script and that
-                                                // Script is calling the *SpawnBullet(); Method From the "BulletSpawner.cs" Script, So i want to know that is it a Good Appraoch OR
-                                                // I should directly call the *SpawnBullet(); Method From the "BulletSpawner.cs" Script* ?
+        enemyShootingBehaviour.ShootBullet();   
+                                               
     }
 
 
