@@ -15,8 +15,8 @@ public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
         SpawnTank();
     
     }
-
-
+  
+    
     private void Start()
     {
         if (playerSpawned != null)
@@ -37,11 +37,7 @@ public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
         PlayerTankController tankController = new PlayerTankController();
 
          playerSpawned = Instantiate(tankView, transform.parent);
-        if (playerSpawned != null)
-        {
-            Debug.Log("Event fired..");
-            this.PlayerSpwnedEvent();
-        }
+     
         
     }
 

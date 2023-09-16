@@ -7,8 +7,7 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
 {
     public float attackTimer;
     public float idleAttackTimeGap = 5;
-   // public Color _color;
-    // public float attackDistance;
+   
     public EnemyShootingBehaviour enemyShootingBehaviour;
 
     private BulletSpanwer bulletSpawner;

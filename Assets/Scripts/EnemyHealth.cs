@@ -60,11 +60,12 @@ public class EnemyHealth : MonoBehaviour,ITakeDamage
 
     public void TakeDamage( float damageAmount)
     {
+        currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {
             Death();
 
         }
-        currentHealth -= damageAmount;
+       
     }
 }
