@@ -14,6 +14,11 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
     private BulletSpanwer bulletSpawner;
 
 
+
+    public override void Awake()
+    {
+        base.Awake();
+    }
     public override void OnEnemyEnterState()
     {
       

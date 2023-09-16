@@ -14,6 +14,11 @@ public class EnemyChasingState : EnemyTankStates, IGetComponentsInAwake
     public float currentChaseDistance;
   
     public float patrolSpeed;
+
+    public override void Awake()
+    {
+        base.Awake();
+    }
     public override void OnEnemyEnterState()
     {
         base.OnEnemyEnterState();
