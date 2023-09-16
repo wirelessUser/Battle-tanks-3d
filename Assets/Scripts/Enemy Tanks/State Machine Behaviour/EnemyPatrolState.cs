@@ -17,8 +17,13 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
     public float currentChaseDistance;
     public float patrolSpeed;
  
-    private Transform cubeLocator;  
-                                   
+    private Transform cubeLocator;
+
+
+    public override void Awake()
+    {
+        base.Awake();   
+    }
     public override void OnEnemyEnterState()
     {
         base.OnEnemyEnterState();
@@ -40,7 +45,7 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
     {
         base.Update();
 
-        //Patrol();
+        Patrol();
     }
 
     protected void SetNewDestinationPointForEnemy()

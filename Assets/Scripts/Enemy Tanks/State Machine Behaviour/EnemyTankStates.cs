@@ -17,29 +17,33 @@ public class EnemyTankStates : MonoBehaviour, IGetComponentsInAwake
     public float attackDistance;
     public float chaseAfterAtackDistance = 2f;
     public EnemyView tankView;
-    private void Awake()
+    public virtual void Awake()
     {
         GetComponenetsInAwake();
+        playerTarget = PlayerTankSpawner.Instance.ReturnView();  
+        playerTransform = playerTarget.GetComponent<Transform>();
+        PlayerTankSpawner.Instance.OnPlayerSpawned += InitializePlayer;
     }
 
     public void OnEnable()
     {
-        Debug.Log("**OnEnable()***");
-        PlayerTankSpawner.Instance.OnPlayerSpawned += InitializePlayer;
+        Debug.Log("**OnEnable()***");   // it's calling succesfully,But **InitializePlayer()* Not getting called.(Fixed_->> The Event subscription is occuring in OnEnable Of  *EnemyTankStates
+                                        // Means Player was calling the **InitializePlayer(); in the  Awake Before Subscribing the Event,from OnEnable of *EnemyTankStates. 
+                                        // To the *OnPlayerSpawned  E
+
     }
 
     public void OnDisable()
     {
         PlayerTankSpawner.Instance.OnPlayerSpawned -= InitializePlayer;
     }
- 
 
 
 
-    public  void InitializePlayer()
+    public  void InitializePlayer()   
     {
         Debug.Log("**InitiAlizePlayer***");
-       playerTarget = PlayerTankSpawner.Instance.ReturnView();
+      playerTarget = PlayerTankSpawner.Instance.ReturnView();
         playerTransform = playerTarget.GetComponent<Transform>();
     }
     public virtual void OnEnemyEnterState() {

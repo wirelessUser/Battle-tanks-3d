@@ -37,16 +37,17 @@ public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
         PlayerTankController tankController = new PlayerTankController();
 
          playerSpawned = Instantiate(tankView, transform.parent);
-       
-
+        if (playerSpawned != null)
+        {
+            Debug.Log("Event fired..");
+            this.PlayerSpwnedEvent();
+        }
+        
     }
 
     public PlayerTankView ReturnView()
     {
-        if (playerSpawned == null)
-        {
-            Debug.Log("Playerview Null..");
-        }
+       
         return playerSpawned;
     }
 }
