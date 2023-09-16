@@ -27,9 +27,7 @@ public class EnemyTankStates : MonoBehaviour, IGetComponentsInAwake
 
     public void OnEnable()
     {
-        Debug.Log("**OnEnable()***");   // it's calling succesfully,But **InitializePlayer()* Not getting called.(Fixed_->> The Event subscription is occuring in OnEnable Of  *EnemyTankStates
-                                        // Means Player was calling the **InitializePlayer(); in the  Awake Before Subscribing the Event,from OnEnable of *EnemyTankStates. 
-                                        // To the *OnPlayerSpawned  E
+        Debug.Log("**OnEnable()***");   
 
     }
 

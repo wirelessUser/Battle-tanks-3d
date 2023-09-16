@@ -34,8 +34,8 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     private void Update()
     {
         TakeInput();
-      // tankController.Move(horizontalInput); // I am calling it from Player Controlelr But Player is not moving **But it's Not working  .
-       // tankController.Rotation(verticleInput);// I am calling it from Player Controlelr But Player is not Rotating,**But it's Not working 
+      // tankController.Move(horizontalInput); // I am calling it from Player Controlelr But Player is not moving **Meansit's Not working  .
+       // tankController.Rotation(verticleInput);// I am calling it from Player Controlelr But Player is not Rotating,**Means it's Not working 
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -60,7 +60,8 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
        // Code in the Contollr But from there it is not moving and i am not able to figure out why ?,But Writing that code Here is working fine ************
 
 
-        Quaternion rotationAngle = Quaternion.Euler(new Vector3(0f, horizontalInput, 0f));
+        Quaternion rotationAngle = Quaternion.Euler(new Vector3(0f, horizontalInput, 0f));// This rotation have same issue (this code is working from here correctly But 
+                                                                                          // from the Controlelr it's not working.
 
 
         rb.MoveRotation(rb.rotation * rotationAngle);
