@@ -8,6 +8,7 @@ public class EnemyDataScriptableObject : ScriptableObject
 
     public string EnemyName;
     public EnemyTankType tankType;
+    public int id;
     public int health;
     public float damage;
     public float movementSpeed;

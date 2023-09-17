@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class EnemySpawner : EventManager<EnemySpawner>
 {
   
@@ -9,10 +9,13 @@ public class EnemySpawner : EventManager<EnemySpawner>
     public List<EnemyView> enemyPrefab;
     public Transform[] spawnPoints;
     public Vector3 offset;
+
+    //..............Events................
+    public event Action<int, int, EnemyTankType, int> enemyBulletHitEvent;   // Enemyid,playerId,EnemyType,BulletAmount
    public override void Awake()
     {
         base.Awake();
-        //model = new EnemyModel();
+       
        
 
 
@@ -22,12 +25,7 @@ public class EnemySpawner : EventManager<EnemySpawner>
     {
         SpawneEnemy();
     }
-    //private void Start()
-    //{
-    //    transform.position = offset;
-    //    EnemyController controller = new EnemyController(view, model);
-    //    controller.InstantiateEnemies(enemyPrefab, spawnPoints);
-    //}
+   
 
     public void SpawneEnemy()
     {
@@ -43,4 +41,9 @@ public class EnemySpawner : EventManager<EnemySpawner>
          
     }
 
+   
+    public void EnemyBulletHitEvent(int PlayerId,int bulletHit,int enemymodelId,EnemyTankType enemyType)
+    {
+        enemyBulletHitEvent?.Invoke(enemymodelId, PlayerId, enemyType, bulletHit);
+    }
 }

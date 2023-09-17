@@ -17,12 +17,14 @@ public class EnemyTankStates : MonoBehaviour, IGetComponentsInAwake
     public float attackDistance;
     public float chaseAfterAtackDistance = 2f;
     public EnemyView tankView;
+   public  int enemyId;
     public virtual void Awake()
     {
         GetComponenetsInAwake();
         playerTarget = PlayerTankSpawner.Instance.ReturnView();  
         playerTransform = playerTarget.GetComponent<Transform>();
         PlayerTankSpawner.Instance.OnPlayerSpawned += InitializePlayer;
+        enemyId = tankView.GetComponent<EnemyDataScriptableObject>().id;
     }
 
     public void OnEnable()

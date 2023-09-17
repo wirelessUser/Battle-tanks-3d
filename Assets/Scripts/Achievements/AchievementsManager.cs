@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AchievementsManager : MonoBehaviour
+public class AchievementsManager : MonoBehaviour, IUnlockPlayerBulletShotAchievements
 {
     public ListAchivements achievements;
 
@@ -15,9 +15,49 @@ public class AchievementsManager : MonoBehaviour
 
     //Same For Enemy i will Have a Sepaarte Achiveement Script And pass its refrnce in the "EnemyView.cs" Script ?
 
+    private void OnEnable()
+    { 
+        EnemySpawner.Instance.enemyBulletHitEvent += CheckBulletAchivementUnlock; 
+    }
 
-    public void UnlockAchievements(AchievementsType type)
+
+    private void OnDisable()
     {
+        EnemySpawner.Instance.enemyBulletHitEvent -= CheckBulletAchivementUnlock;
 
+    }
+   public void GoodShotUnlocked()
+    {
+        Debug.Log("GoodShotUnlocked");
+    }
+    public void BetterShotUnlocked()
+    {
+        Debug.Log("BetetrShotUnlocked");
+    }
+    public void BestShotUnlocked()
+    {
+        Debug.Log("BestShotUnlocked");
+    }
+
+
+
+    public void CheckBulletAchivementUnlock(int enemyId, int playerId, EnemyTankType enemyType, int bullets)
+    {
+        switch (bullets)
+        {
+            case 1:
+                BetterShotUnlocked();
+                break;
+            case 2:
+                BetterShotUnlocked();
+                break;
+
+            case 3:
+                BestShotUnlocked();
+                break;
+
+            default:
+                break;
+        }
     }
 }
