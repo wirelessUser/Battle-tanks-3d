@@ -447,13 +447,19 @@ GameObject:
   - component: {fileID: 1054212932288543488}
   - component: {fileID: 1054212932288543490}
   - component: {fileID: 4003223537220944625}
+  - component: {fileID: 5961303948385976516}
+  - component: {fileID: 4232451828467309250}
+  - component: {fileID: 3980017037274089901}
+  - component: {fileID: 5521928795840750603}
+  - component: {fileID: 8248420803586798723}
+  - component: {fileID: 2344941862276790252}
   m_Layer: 6
   m_Name: SmallEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5057332736325729726
 Transform:
   m_ObjectHideFlags: 0
@@ -509,7 +515,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5057332736325427294}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -524,6 +530,128 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5961303948385976516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057332736325427294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10edcd539a04862439dab6f0ffdd450b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dustTrailEffects:
+  - {fileID: 2700053455872156275}
+  - {fileID: 8698229771981446103}
+  myRenderer:
+  - {fileID: 5057332736323436334}
+  - {fileID: 5057332736323436328}
+  - {fileID: 5057332736323436326}
+  - {fileID: 5057332736323436332}
+  currentState: {fileID: 5521928795840750603}
+  patrollingState: {fileID: 5521928795840750603}
+  chasingState: {fileID: 3980017037274089901}
+  attackState: {fileID: 4232451828467309250}
+--- !u!114 &4232451828467309250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057332736325427294}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0fc2e95518ce34b9800fa2d5ae4063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0.0323627, b: 1, a: 0}
+  playerTransform: {fileID: 0}
+  enemyStates: 2
+  attackDistance: 5
+  chaseAfterAtackDistance: 2
+  tankView: {fileID: -7696802979863906250, guid: 79c5fa760dedefb48b7ade0ee9b2cfdb,
+    type: 3}
+  attackTimer: 0
+  idleAttackTimeGap: 1
+  enemyShootingBehaviour: {fileID: 6217432239092033594, guid: 79c5fa760dedefb48b7ade0ee9b2cfdb,
+    type: 3}
+--- !u!114 &3980017037274089901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057332736325427294}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1638560e55c495b4a88da4ce86e4e119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.13166365, g: 1, b: 0.0141509175, a: 0}
+  playerTransform: {fileID: 0}
+  enemyStates: 1
+  attackDistance: 5
+  chaseAfterAtackDistance: 2
+  tankView: {fileID: 0}
+  chaseSpeed: 10
+  chasingDistance: 15
+  currentChaseDistance: 15
+  patrolSpeed: 10
+--- !u!114 &5521928795840750603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057332736325427294}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f05af70c793fa45a10b2d5c50dc964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  playerTransform: {fileID: 0}
+  enemyStates: 0
+  attackDistance: 5
+  chaseAfterAtackDistance: 2
+  tankView: {fileID: 0}
+  PatrolMinRadius: 20
+  patrolMaxradius: 60
+  patrolTimer: 0
+  idlePatrolTime: 20
+  chasingDistance: 15
+  currentChaseDistance: 15
+  patrolSpeed: 40
+--- !u!114 &8248420803586798723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057332736325427294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6339053452bdc48998f0ca005d631d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
+  maxHealth: 100
+  currentHealth: 0
+--- !u!114 &2344941862276790252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057332736325427294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7e4dcbe16e01143b48b2bac78e9674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
 --- !u!1 &7749850405785145632
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +757,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
+--- !u!1 &2700053455872156275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 148586, guid: f7167ad2844254441b40b8a300b4f1fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 2700053455872009753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2700053455872374139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe,
@@ -711,6 +845,12 @@ PrefabInstance:
 --- !u!4 &8698229771981262047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 8698229771981299645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8698229771981446103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 148586, guid: f7167ad2844254441b40b8a300b4f1fe,
     type: 3}
   m_PrefabInstance: {fileID: 8698229771981299645}
   m_PrefabAsset: {fileID: 0}
