@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletView : MonoBehaviour, IDestroyObject
+public class BulletView : MonoBehaviour, IDestroyObject, IBulletHitEnemyAchivement
 {
     public BulletController controller;
 
@@ -10,8 +10,8 @@ public class BulletView : MonoBehaviour, IDestroyObject
     public Rigidbody rb;
 
     public GameObject owner;
-  
 
+    public int BulletHitCountEnemy;
 
     public void SetOwner(GameObject _owner)  //## i am checking collsion in the bulletView script (if any obejct implements ITakedamge() interface
                                              //then bullet will give damage to it ,But i want to make sure that Bullet dont give damage to it's Spanwer(Player Or Enemy).
@@ -46,11 +46,15 @@ public class BulletView : MonoBehaviour, IDestroyObject
             damage.TakeDamage(10);
         }
 
+
+      // if(collision.gameObject.)
        
     }
-  
 
-  
+    public void BulletHitEnemyAchievement()
+    {
+        throw new System.NotImplementedException();
+    }
 
    
 }

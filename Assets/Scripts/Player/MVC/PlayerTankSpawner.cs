@@ -9,6 +9,8 @@ public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
     public PlayerTankView tankView;
 
     public PlayerTankView playerSpawned;
+
+    public AchievementsManager achivementManager;
     public  override void Awake()
     {
         base.Awake();

@@ -7,9 +7,9 @@ public class EnemyController
     public EnemyView view;
     public EnemyModel model;
 
-    public List<int> spawnPointList;
+    //public List<int> spawnPointList;
 
-    public List<int> EnemySpawnList;
+    //public List<int> EnemySpawnList;
 
     public  EnemyController(EnemyView _view, EnemyModel _model)
     {
@@ -21,24 +21,24 @@ public class EnemyController
 
     }
 
-    public void InstantiateEnemies(List<EnemyView>  enemyprefbas,Transform[] spawnePoints)
-    {
+    //public void InstantiateEnemies(List<EnemyView>  enemyprefbas,Transform[] spawnePoints)
+    //{
       
-        for (int i = 0; i < enemyprefbas.Count; i++)
-        {
-         //   Debug.Log($"enemyprefbas[i].name = {enemyprefbas[i].name},count=={enemyprefbas.Count}");
+    //    for (int i = 0; i < enemyprefbas.Count; i++)
+    //    {
+    //     //   Debug.Log($"enemyprefbas[i].name = {enemyprefbas[i].name},count=={enemyprefbas.Count}");
         
-            EnemyView enemyInst = GameObject.Instantiate(enemyprefbas[i]);
+    //        EnemyView enemyInst = GameObject.Instantiate(enemyprefbas[i]);
           
-            enemyInst.transform.position = spawnePoints[i].position;
-           // Debug.Log($"enemyInst.transform.position"+ enemyInst.transform.position);
+    //        enemyInst.transform.position = spawnePoints[i].position;
+    //       // Debug.Log($"enemyInst.transform.position"+ enemyInst.transform.position);
 
-       }
+    //   }
         
 
 
 
-    }
+    //}
 
 
 

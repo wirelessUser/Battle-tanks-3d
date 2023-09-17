@@ -19,6 +19,8 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 
     public PlayerShootingBehaviour shootingBehaviour;
 
+
+   
   
     private void Awake()
     {
@@ -35,7 +37,7 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     {
         TakeInput();
       // tankController.Move(horizontalInput); // I am calling it from Player Controlelr But Player is not moving **Meansit's Not working  .
-       // tankController.Rotation(verticleInput);// I am calling it from Player Controlelr But Player is not Rotating,**Means it's Not working 
+      //  tankController.Rotation(verticleInput);// I am calling it from Player Controlelr But Player is not Rotating,**Means it's Not working 
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

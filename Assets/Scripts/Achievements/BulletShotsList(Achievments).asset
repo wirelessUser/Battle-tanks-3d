@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dd26e2852c8ec54c8de17a2d6aa0347, type: 3}
+  m_Name: BulletShotsList(Achievments)
+  m_EditorClassIdentifier: 
+  AchivementsList:
+  - {fileID: 11400000, guid: 0e5b68a2ac3840e44ac633387efd72f6, type: 2}
+  - {fileID: 11400000, guid: f30b0ad219bb4d8458661675d5495154, type: 2}
+  - {fileID: 11400000, guid: 4646c348a3c32a543a14aec9664b1025, type: 2}
