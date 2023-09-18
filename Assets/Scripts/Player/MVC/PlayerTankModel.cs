@@ -14,6 +14,7 @@ public class PlayerTankModel
 
     public float movementSpeed { get; private set ; }
 
+    public int id { get; private set; }
     public void SetController(PlayerTankController _tankController)
     {
         tankController = _tankController;
@@ -27,6 +28,7 @@ public class PlayerTankModel
         currentHealth = health;
         damage = data.damage;
         movementSpeed = data.movementSpeed;
+        id = data.playerId;
 
 
     }

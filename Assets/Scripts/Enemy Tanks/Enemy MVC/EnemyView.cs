@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class EnemyView : MonoBehaviour,IinitializeVariables
+public class EnemyView : MonoBehaviour,IinitializeVariables, IEnemyAchivementBulletHit
 {
     public EnemyController enemyController;
     public GameObject[] dustTrailEffects;
@@ -14,6 +14,7 @@ public class EnemyView : MonoBehaviour,IinitializeVariables
     public EnemyTankStates patrollingState;
     public EnemyTankStates chasingState;
     public EnemyTankStates attackState;
+    public int bulletHitCount;
     private void Awake()
     {
        //myRenderer = new Renderer[GetComponentsInChildren<Renderer>()];//
@@ -66,5 +67,22 @@ public class EnemyView : MonoBehaviour,IinitializeVariables
         currentState = newState;
 
         currentState.OnEnemyEnterState();
+    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.GetComponent<BulletView>() && collision.gameObject.GetComponent<BulletView>().owner != this.gameObject)
+    //    {
+            
+    //        EnemySpawner.Instance.EnemyBulletHitEvent()
+    //    }
+    //}
+
+
+    public void AchivementPlayerBulletHit(int playerId)
+    {
+        bulletHitCount++;
+       
+        EnemySpawner.Instance.EnemyBulletHitEvent(playerId, bulletHitCount,GetComponent<EnemyModel>().id, GetComponent<EnemyModel>().enemyType);
     }
 }

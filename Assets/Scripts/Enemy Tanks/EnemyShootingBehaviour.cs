@@ -6,11 +6,11 @@ public class EnemyShootingBehaviour :MonoBehaviour, IShootBullet
 {
    
     public Transform spawnPoint;
-  
 
+    public int enemyId;
     public void ShootBullet()               
     {
-        BulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet,this.gameObject);
+        BulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet,this.gameObject, enemyId);
       
     }
 

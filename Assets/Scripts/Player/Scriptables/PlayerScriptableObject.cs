@@ -8,6 +8,8 @@ public class PlayerScriptableObject : ScriptableObject
 {
     public string playerName;
     public PlayerTankType tankType;
+    public GameEntityTypes gameEntityType;
+    public int playerId;
     public int health;
     public float damage;
     public float movementSpeed;

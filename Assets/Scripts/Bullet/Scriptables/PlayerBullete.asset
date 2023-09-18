@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletType: 0
   BulleteName: PlayerBullete
+  gameEntityType: 1
   speed: 10
   damageCapacity: 20

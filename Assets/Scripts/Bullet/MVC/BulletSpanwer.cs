@@ -8,7 +8,7 @@ public class BulletSpanwer : EventManager<BulletSpanwer> , IBulletSpawn
    
     public GameObject[] view;
 
-    public  void SpawnBullet(Transform spawnPoint, BulletEnum bulletType,GameObject owner) // passing the Ownr gaemObject to Know that (the spawner is enemy Or Player) ,
+    public  void SpawnBullet(Transform spawnPoint, BulletEnum bulletType,GameObject owner,int OwnerId) // passing the Ownr gaemObject to Know that (the spawner is enemy Or Player) ,
                                                                                            // So  The Bullet Will Give Damage Accordingly( to mkae sure that Is slould Not give
                                                                                            // Damage  to it's Owner/Spawner.
     {
@@ -16,7 +16,7 @@ public class BulletSpanwer : EventManager<BulletSpanwer> , IBulletSpawn
        
         bulletSpawned = Instantiate(view[(int)bulletType]) ;
     
-        bulletSpawned.GetComponent<BulletView>().SetOwner(owner);
+        bulletSpawned.GetComponent<BulletView>().SetOwner(owner, OwnerId);
 
         bulletSpawned.transform.localPosition = spawnPoint.position;
         bulletSpawned.transform.localRotation = spawnPoint.rotation;
