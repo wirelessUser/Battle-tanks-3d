@@ -10,15 +10,16 @@ public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
 
     public PlayerTankView playerSpawned;
 
-    public AchievementsManager achivementManager;
+    PlayerTankModel tankModel;
+    public int playerId;
     public  override void Awake()
     {
         base.Awake();
         SpawnTank();
-    
+        playerId = tankModel.id;
     }
   
-    
+   
     private void Start()
     {
         if (playerSpawned != null)
@@ -34,13 +35,14 @@ public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
     }
     public void SpawnTank()
     {
-        PlayerTankModel tankModel = new PlayerTankModel();
+        tankModel = new PlayerTankModel();
      
         PlayerTankController tankController = new PlayerTankController();
-
+       
          playerSpawned = Instantiate(tankView, transform.parent);
-     
-        
+        tankController.PlayerTankControllerSetting(tankModel, tankView, playerSpawned);
+
+
     }
 
     public PlayerTankView ReturnView()

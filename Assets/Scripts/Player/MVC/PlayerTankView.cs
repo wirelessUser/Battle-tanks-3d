@@ -19,7 +19,7 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 
     public PlayerShootingBehaviour shootingBehaviour;
 
-
+   // public int playerId;
    
   
     private void Awake()
@@ -29,15 +29,15 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 
     public void GetComponenetsInAwake()
     {
-       
-        mainCam =  Camera.main.GetComponent<CameraFollow>();
+      
+         mainCam =  Camera.main.GetComponent<CameraFollow>();
         mainCam.CameraSetup(this);
     }
     private void Update()
     {
         TakeInput();
-      // tankController.Move(horizontalInput); // I am calling it from Player Controlelr But Player is not moving **Meansit's Not working  .
-      //  tankController.Rotation(verticleInput);// I am calling it from Player Controlelr But Player is not Rotating,**Means it's Not working 
+       tankController.Move(horizontalInput); 
+        tankController.Rotation(verticleInput);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -55,18 +55,8 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     public void TakeInput()   
     {
 
-        horizontalInput = Input.GetAxis("Horizontal1");
-        verticleInput = Input.GetAxis("Vertical1");
-
-        rb.velocity = transform.forward * verticleInput * 50;    // ********DOUBT Player Movement Left Right (Currently I am Facing Issue Becuase i have wrote this
-       // Code in the Contollr But from there it is not moving and i am not able to figure out why ?,But Writing that code Here is working fine ************
-
-
-        Quaternion rotationAngle = Quaternion.Euler(new Vector3(0f, horizontalInput, 0f));// This rotation have same issue (this code is working from here correctly But 
-                                                                                          // from the Controlelr it's not working.
-
-
-        rb.MoveRotation(rb.rotation * rotationAngle);
+        horizontalInput = Input.GetAxis("Vertical1");
+        verticleInput = Input.GetAxis("Horizontal1");
     }
 
     public Rigidbody ReturnRb()    

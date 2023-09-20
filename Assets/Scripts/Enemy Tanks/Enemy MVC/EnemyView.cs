@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class EnemyView : MonoBehaviour,IinitializeVariables, IEnemyAchivementBulletHit
+public class EnemyView : MonoBehaviour,IinitializeVariables
 {
     public EnemyController enemyController;
     public GameObject[] dustTrailEffects;
@@ -15,6 +15,8 @@ public class EnemyView : MonoBehaviour,IinitializeVariables, IEnemyAchivementBul
     public EnemyTankStates chasingState;
     public EnemyTankStates attackState;
     public int bulletHitCount;
+
+    public EnemyTankType enemyType;
     private void Awake()
     {
        //myRenderer = new Renderer[GetComponentsInChildren<Renderer>()];//
@@ -24,6 +26,13 @@ public class EnemyView : MonoBehaviour,IinitializeVariables, IEnemyAchivementBul
     private void Start()
     {
         ChangeEnemyState(currentState);
+       
+    }
+
+    public void InitializeID( EnemyTankType _enemyType)
+    {
+        
+        enemyType = _enemyType;
     }
 
     public void ChangeColor(Color _color)
@@ -69,20 +78,23 @@ public class EnemyView : MonoBehaviour,IinitializeVariables, IEnemyAchivementBul
         currentState.OnEnemyEnterState();
     }
 
+    #region  Commented.....
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
     //    if (collision.gameObject.GetComponent<BulletView>() && collision.gameObject.GetComponent<BulletView>().owner != this.gameObject)
     //    {
-            
+
     //        EnemySpawner.Instance.EnemyBulletHitEvent()
     //    }
     //}
 
 
-    public void AchivementPlayerBulletHit(int playerId)
-    {
-        bulletHitCount++;
-       
-        EnemySpawner.Instance.EnemyBulletHitEvent(playerId, bulletHitCount,GetComponent<EnemyModel>().id, GetComponent<EnemyModel>().enemyType);
-    }
+    //public void AchivementPlayerBulletHit(int playerId)
+    //{
+    //    bulletHitCount++;
+
+    //   // EnemySpawner.Instance.EnemyBulletHitEvent(playerId, bulletHitCount,GetComponent<EnemyModel>().id, GetComponent<EnemyModel>().enemyType);
+    //}
+
+    #endregion
 }

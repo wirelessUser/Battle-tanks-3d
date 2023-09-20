@@ -9,24 +9,20 @@ public class EnemySpawner : EventManager<EnemySpawner>
     public List<EnemyView> enemyPrefab;
     public Transform[] spawnPoints;
     public Vector3 offset;
-
-    //..............Events................
-    public event Action<int, int, EnemyTankType, int> enemyBulletHitEvent;   // Enemyid,playerId,EnemyType,BulletAmount
+    public EnemyAttckState enemyAttack;
+   
    public override void Awake()
     {
         base.Awake();
-       
-       
-
-
     }
 
+  
     private void Start()
     {
         SpawneEnemy();
+     
     }
    
-
     public void SpawneEnemy()
     {
         int i = 0;
@@ -34,16 +30,13 @@ public class EnemySpawner : EventManager<EnemySpawner>
         {
             EnemyView enemyInst = Instantiate(enemyPrefab[i]);
             enemyInst.transform.position = spawnPoints[i].position ;
-
-            EnemyController controller = new EnemyController(enemyInst.GetComponent<EnemyView>(), new EnemyModel());
-
+            model = new EnemyModel();
+             EnemyController controller = new EnemyController(enemyInst.GetComponent<EnemyView>(), model);
+          
+            enemyInst.GetComponent<EnemyView>().InitializeID( model.enemyType);
         }
          
     }
 
    
-    public void EnemyBulletHitEvent(int PlayerId,int bulletHit,int enemymodelId,EnemyTankType enemyType)
-    {
-        enemyBulletHitEvent?.Invoke(enemymodelId, PlayerId, enemyType, bulletHit);
-    }
 }

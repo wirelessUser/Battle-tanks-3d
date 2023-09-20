@@ -10,18 +10,18 @@ public class PlayerTankController
     public Rigidbody rb;
 
     
-    public void PlayerTankControllerSetting(PlayerTankModel _model, PlayerTankView _view)
+    public void PlayerTankControllerSetting(PlayerTankModel _model, PlayerTankView _view, PlayerTankView _playerView)
     {
        // Debug.Log("Inside the **PlayerTankControllerSetting ");
         model = _model;
        
-        view = _view;
+        view = _playerView;
      
         model.SetController(this);
         
         model.SetPlayerTankModel(view.dataSo);
-       PlayerTankView newView= Object.Instantiate(view.gameObject).GetComponent<PlayerTankView>();
-        rb = newView.ReturnRb();
+        //  PlayerTankView newView= Object.Instantiate(view.gameObject).GetComponent<PlayerTankView>();
+        rb = _playerView.GetComponent<Rigidbody>();
         if (rb == null)
         {
             Debug.Log("Rigidbody is null in PlayerTankController");
@@ -30,22 +30,22 @@ public class PlayerTankController
         {
             Debug.Log("Rigidbody is assigned in PlayerTankController");
         }
-        newView.SetController(this);
-        newView.gameObject.name = model.name;
+        _playerView.SetController(this);
+        _playerView.gameObject.name = model.name;
     }
 
 
 
-    public  void Move(float moveDir)     //*****DOUBT, I am calling that Method from Player view But it's Not working(*Player Not moving) , But when i am writing thaat movement code In the view Script thenplayer is moving 
+    public  void Move(float moveDir)   
     {                          
   
 
       
-        rb.velocity = view.transform.forward * moveDir *500*Time.deltaTime;
+        rb.velocity = view.transform.forward * moveDir *model.movementSpeed*Time.deltaTime;
        
     
     }
-    public void Rotation( float rotateDir)  //*****DOUBT, I am calling that Method from Player view But it's Not working (*Player Not Rotating) , But when i am writing thaat Rotation code In the view Script then player is Rotating 
+    public void Rotation( float rotateDir)  
     {
         
          Quaternion rotationAngle = Quaternion.Euler(new Vector3(0f, rotateDir, 0f));

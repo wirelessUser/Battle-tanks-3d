@@ -10,7 +10,7 @@ public class EnemyController
     //public List<int> spawnPointList;
 
     //public List<int> EnemySpawnList;
-
+  
     public  EnemyController(EnemyView _view, EnemyModel _model)
     {
         view = _view;

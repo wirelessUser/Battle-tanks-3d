@@ -17,7 +17,7 @@ public class EnemyModel
     public float movementSpeed { get; private set; }
 
     public EnemyTankType enemyType;
-    public int id { get;private set; }
+  //  public int id { get;private set; }
     public void SetModel(EnemyDataScriptableObject data)
     {
         tankName = data.name;
@@ -26,7 +26,7 @@ public class EnemyModel
         damage = data.damage;
         movementSpeed = data.movementSpeed;
         enemyType = data.tankType;
-        id = data.id;
+       // id = data.id;
     }
 
     

@@ -9,9 +9,10 @@ public class BulletController
 
     private Rigidbody bulletRb;
 
-    public BulletController(BulletView _view,BulletModel _model)
+    public BulletController(BulletView _view, BulletModel _model)
     {
-        view = _view;
+        BulletView newView = Object.Instantiate(_view);
+        view = newView;
         model = _model;
         bulletRb = view.gameObject.GetComponent<Rigidbody>();
         if (bulletRb == null)
@@ -21,16 +22,12 @@ public class BulletController
         view.SetBulletController(this);
         model.SetBulletController(this);
 
-        
 
 
-    }
-
-    public BulletView SpawnBullet()
-    {
-       return GameObject.Instantiate(view);
 
     }
+
+   
 
 
 }

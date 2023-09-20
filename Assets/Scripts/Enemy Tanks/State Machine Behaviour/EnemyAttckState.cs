@@ -8,11 +8,19 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
     public float attackTimer;
     public float idleAttackTimeGap = 5;
    
-    public EnemyShootingBehaviour enemyShootingBehaviour;
+   // public EnemyShootingBehaviour enemyShootingBehaviour;
 
     private BulletSpanwer bulletSpawner;
 
-   
+    public Transform spawnPoint;
+
+    public int enemyId;
+    public EnemyTankType enemyTankType;
+    public void SetIdAndTankType(int _enemyId, EnemyTankType _enemyTankType)
+    {
+        enemyId = _enemyId;
+        enemyTankType = _enemyTankType;
+    }
 
     public override void Awake()
     {
@@ -70,9 +78,10 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
     {
         transform.LookAt(playerTransform);
 
-        enemyShootingBehaviour.enemyId = enemyId;
-        enemyShootingBehaviour.ShootBullet();   
-                                               
+        
+       // enemyShootingBehaviour.ShootBullet(EnemySpawner.Instance.enemyId);
+        BulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet, this.gameObject, enemyId);
+
     }
 
 

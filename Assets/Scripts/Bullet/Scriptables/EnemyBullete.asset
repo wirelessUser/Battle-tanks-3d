@@ -15,5 +15,5 @@ MonoBehaviour:
   bulletType: 1
   BulleteName: EnemyBullete
   gameEntityType: 1
-  speed: 20
+  speed: 500
   damageCapacity: 30
