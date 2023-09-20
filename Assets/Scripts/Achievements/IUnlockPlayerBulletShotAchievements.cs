@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IUnlockPlayerBulletShotAchievements
 {
-    public void CheckBulletAchivementUnlock(int enemyId, int playerId, EnemyTankType enemyType, int bullets);
+    public void CheckBulletAchivementUnlock( int playerId, EnemyTankType enemyType);
 }

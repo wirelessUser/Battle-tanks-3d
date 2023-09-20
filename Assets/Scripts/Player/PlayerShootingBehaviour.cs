@@ -21,7 +21,7 @@ public class PlayerShootingBehaviour : MonoBehaviour,IShootBullet
 
         if (playerRef != null)
         {
-            bulletSpawner.SpawnBullet(spawnPoint, BulletEnum.PlayerBullet, this.gameObject, this.gameObject.GetComponent<PlayerTankModel>().id);
+            bulletSpawner.SpawnBullet(spawnPoint, BulletEnum.PlayerBullet, this.gameObject, PlayerTankSpawner.Instance.playerId  /*this.gameObject.GetComponent<PlayerTankModel>().id*/);
 
             bulletCount++;
             

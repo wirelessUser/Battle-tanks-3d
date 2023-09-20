@@ -11,7 +11,7 @@ public class BulletView : MonoBehaviour, IDestroyObject
 
     public GameObject owner;
     public int OwnerId;
-    public int BulletHitCountEnemy;
+   
 
     public void SetOwner(GameObject _owner,int _OwnerId)  //## i am checking collsion in the bulletView script (if any obejct implements ITakedamge() interface
                                              //then bullet will give damage to it ,But i want to make sure that Bullet dont give damage to it's Spanwer(Player Or Enemy).
@@ -19,6 +19,19 @@ public class BulletView : MonoBehaviour, IDestroyObject
     {
         OwnerId = _OwnerId;
         owner = _owner;
+
+    }
+
+    private void OnEnable()
+    {
+        // AchievementsManager.Instance.EnemeyBulletHitAchivementUnlock += CheckBulletAchivementUnlock; 
+
+    }
+
+
+    private void OnDisable()
+    {
+       // AchievementsManager.Instance.EnemeyBulletHitAchivementUnlock -= CheckBulletAchivementUnlock;
 
     }
     private void Start()
@@ -33,28 +46,42 @@ public class BulletView : MonoBehaviour, IDestroyObject
 
     public void SetBulletController(BulletController  _controller)
     {
+        Debug.Log("&&&&&Bullets Controler Set By View&&&&");
         controller = _controller;
-    }
-
- 
-
-    private void OnTriggerEnter(Collider collision)
-    {
-      
-       if(collision.TryGetComponent<ITakeDamage>(out var damage)&& collision.gameObject != owner)  
-        {
-           
-            damage.TakeDamage(10);
-        }
-
-       if(collision.TryGetComponent<IEnemyAchivementBulletHit>(out var achievement))
-        {
-            achievement.AchivementPlayerBulletHit(this.OwnerId);
-        }
-      // if(collision.gameObject.)
-       
     }
 
 
    
+    private void OnCollisionEnter(Collision collision)
+    {
+       
+       
+        if (collision.gameObject != owner)
+        {
+            if (collision.gameObject.GetComponent<EnemyView>() != null)
+            {
+                AchievementsManager.Instance.BulletHitCountEnemy++;
+                AchivementCollison(collision);
+            }
+            Destroy(this.gameObject);
+         
+        }
+
+      
+
+    }
+
+    private void AchivementCollison(Collision collision)
+    {
+        if (AchievementsManager.Instance.allBulletAchivementUnlocked == false)
+        {
+
+            AchievementsManager.Instance.CheckBulletAchivementUnlock(this.OwnerId, collision.gameObject.GetComponent<EnemyView>().enemyType);
+
+            Destroy(this.gameObject);
+        }
+    }
+
 }
+
+

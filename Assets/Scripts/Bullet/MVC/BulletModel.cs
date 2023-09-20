@@ -25,6 +25,7 @@ public class BulletModel
 
     public void SetBulletController(BulletController _controller)
     {
+        Debug.Log("&&&&&Bullets Controler Set By View&&&&");
         controller = _controller;
     }
     

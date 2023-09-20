@@ -9,39 +9,22 @@ public class EnemyHealth : MonoBehaviour,ITakeDamage
     public float maxHealth;
     public float currentHealth;
 
-    
+    public int bulletHit;
 
     private void Awake()
     {
+        bulletHit = 0;
         currentHealth = maxHealth;
+  
     }
+
 
     public void Death()
     {
-
         ExplosionEffect();
         StartCoroutine(EnemyDeath(this.gameObject));
 
-
     }
-
-    private void OnEnable()
-    {
-      
-           
-            EventManager<PlayerTankSpawner>.Instance.onPlayerDeath += Death;
-        
-    }
-
-
-    private void OnDisable()
-    {
-      
-           
-      PlayerTankSpawner.Instance.onPlayerDeath -= Death;
-        
-    }
-
 
     public void ExplosionEffect()
     {
@@ -60,6 +43,7 @@ public class EnemyHealth : MonoBehaviour,ITakeDamage
 
     public void TakeDamage( float damageAmount)
     {
+        bulletHit++;
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {
@@ -68,4 +52,6 @@ public class EnemyHealth : MonoBehaviour,ITakeDamage
         }
        
     }
+
+  
 }

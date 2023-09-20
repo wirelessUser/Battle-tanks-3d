@@ -189,11 +189,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6154418042008020227}
-  - component: {fileID: 6752226188300848252}
   - component: {fileID: 6752226188300848254}
+  - component: {fileID: 1349110420794973305}
   - component: {fileID: -7696802979863906250}
   - component: {fileID: 547396915}
-  - component: {fileID: 6217432239092033594}
   - component: {fileID: -7098515408151798390}
   - component: {fileID: 843345636}
   - component: {fileID: 613739574396811264}
@@ -223,19 +222,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6752226188300848252
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6154418042007927011}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5624838, y: 2.329774, z: 3.4933262}
-  m_Center: {x: 0.0055413246, y: 1.1413891, z: -0.03878498}
 --- !u!54 &6752226188300848254
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -252,6 +238,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &1349110420794973305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154418042007927011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4720163, y: 2.3364363, z: 3.2467625}
+  m_Center: {x: -0.019368649, y: 1.113697, z: 0.058105826}
 --- !u!114 &-7696802979863906250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +275,8 @@ MonoBehaviour:
   patrollingState: {fileID: 613739574396811264}
   chasingState: {fileID: 843345639}
   attackState: {fileID: 843345638}
+  bulletHitCount: 0
+  enemyid: 0
 --- !u!195 &547396915
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -298,19 +299,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6217432239092033594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6154418042007927011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7e4dcbe16e01143b48b2bac78e9674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 750340465}
 --- !u!114 &-7098515408151798390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +314,9 @@ MonoBehaviour:
   explosionPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
   maxHealth: 100
   currentHealth: 0
+  bulletHit: 0
+  enemyId: 0
+  enemyTankType: 0
 --- !u!95 &843345636
 Animator:
   serializedVersion: 5
@@ -365,6 +356,7 @@ MonoBehaviour:
   attackDistance: 5
   chaseAfterAtackDistance: 2
   tankView: {fileID: -7696802979863906250}
+  enemyId: 0
   PatrolMinRadius: 20
   patrolMaxradius: 60
   patrolTimer: 0
@@ -390,6 +382,7 @@ MonoBehaviour:
   attackDistance: 5
   chaseAfterAtackDistance: 2
   tankView: {fileID: -7696802979863906250}
+  enemyId: 0
   chaseSpeed: 10
   chasingDistance: 15
   currentChaseDistance: 15
@@ -412,9 +405,10 @@ MonoBehaviour:
   attackDistance: 5
   chaseAfterAtackDistance: 2
   tankView: {fileID: -7696802979863906250}
+  enemyId: 0
   attackTimer: 0
   idleAttackTimeGap: 1
-  enemyShootingBehaviour: {fileID: 6217432239092033594}
+  spawnPoint: {fileID: 750340465}
 --- !u!1 &6154418042007927013
 GameObject:
   m_ObjectHideFlags: 0
