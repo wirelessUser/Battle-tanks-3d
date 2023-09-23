@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class MonoSingletonGeneric<T> :MonoBehaviour where T:MonoSingletonGeneric<T>
 {
-    private static T instance;
+    private static  T instance;
+
     public static T Instance { get { return instance; } set { } }
 
     private void Awake()
     {
         MakeInstance();
+
+
     }
 
    

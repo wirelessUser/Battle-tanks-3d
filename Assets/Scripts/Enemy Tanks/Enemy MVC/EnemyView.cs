@@ -21,6 +21,9 @@ public class EnemyView : MonoBehaviour,IinitializeVariables
     {
        //myRenderer = new Renderer[GetComponentsInChildren<Renderer>()];//
         InitializeVariables();
+
+        
+
     }
 
     private void Start()

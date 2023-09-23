@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class ObjectPoolingGeneric<T> : MonoSingletonGeneric<ObjectPoolingGeneric<T>> where T:class
 {
-
-
     public List<PooledItem<T>> pooledItemsList;
-
     public virtual T GetItem()
     {
         // if already availalble...
@@ -49,12 +46,13 @@ public class ObjectPoolingGeneric<T> : MonoSingletonGeneric<ObjectPoolingGeneric
         return  null;
     }
 
-   
+    public class PooledItem<T>
+    {
+        public T item;
+        public bool isUsed;
+    }
+
+
 }
 
 
-public class PooledItem<T>
-{
-    public T item;
-    public bool isUsed;
-}
