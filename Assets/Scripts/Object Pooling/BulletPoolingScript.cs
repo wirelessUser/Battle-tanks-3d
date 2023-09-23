@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletPoolingScript : ObjectPoolingGeneric<BulletController>
 {
-    public BulletModel  bulletModel;
-    public BulletView bulletPrefab;
+    private BulletModel  bulletModel;
+    private BulletView bulletPrefab;
 
 
 

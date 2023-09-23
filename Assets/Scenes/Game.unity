@@ -108,15 +108,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 99.76
     agentHeight: 2.2
     agentSlope: 0
     agentClimb: 0.4
     ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
+    maxJumpAcrossDistance: 0.04
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 33.253334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -210,8 +210,7 @@ MonoBehaviour:
   - {fileID: 59331479}
   - {fileID: 991658673}
   offset: {x: 2, y: 3, z: 4}
-  enemyId: 0
-  enemyTankType: 0
+  enemyAttack: {fileID: 0}
 --- !u!1 &410463741
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievements: {fileID: 11400000, guid: 8b9c33cc09131ca449f95be6557ded1f, type: 2}
   allBulletAchivementUnlocked: 0
+  BulletHitCountEnemy: 0
 --- !u!4 &966588168
 Transform:
   m_ObjectHideFlags: 0
@@ -450,6 +450,103 @@ Transform:
   m_Father: {fileID: 1539413734}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1131830271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1131830274}
+  - component: {fileID: 1131830273}
+  - component: {fileID: 1131830272}
+  - component: {fileID: 1131830275}
+  m_Layer: 0
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
+  m_IsActive: 1
+--- !u!23 &1131830272
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131830271}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1131830273
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131830271}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1131830274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131830271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.4, y: 0, z: -3.2}
+  m_LocalScale: {x: 15.67, y: 1, z: -28.6}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1131830275
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131830271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.0000001}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1236595084
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,12 +992,13 @@ GameObject:
   - component: {fileID: 1840921055}
   - component: {fileID: 1840921054}
   - component: {fileID: 1840921053}
+  - component: {fileID: 1840921056}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!23 &1840921053
 MeshRenderer:
@@ -960,12 +1058,69 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840921051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.4, y: 0.75, z: 43}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -31.7, y: 0, z: -3.2}
+  m_LocalScale: {x: 15.67, y: 1, z: -28.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1840921056
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840921051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.0000001}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1960216837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960216839}
+  - component: {fileID: 1960216838}
+  m_Layer: 0
+  m_Name: BulletPolling Scipt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1960216838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960216837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4cbff2a96ce9a94c94d3eabc0bbb929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1960216839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960216837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.0215645, y: -1.7927189, z: -13.627596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2001518757
 MonoBehaviour:
@@ -980,75 +1135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floor: {fileID: 1633405210888263}
---- !u!1001 &2002585432
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.58201456
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.2574832
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.9899304
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379874, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2406674086267379876, guid: 8e68e04947fd93d4e83f27dac617d238,
-        type: 3}
-      propertyPath: m_Name
-      value: BulletSpawner
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8e68e04947fd93d4e83f27dac617d238, type: 3}
 --- !u!1 &2046574465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,8 +1293,8 @@ GameObject:
   m_Name: Concrete (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 2
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1012729843103331
 GameObject:
@@ -1341,8 +1427,8 @@ GameObject:
   m_Name: Concrete (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 2
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1112818540813369
 GameObject:
@@ -1449,7 +1535,7 @@ GameObject:
   m_Name: Building02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1161985378465935
@@ -1528,7 +1614,7 @@ GameObject:
   m_Name: Building02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1197187886365005
@@ -1549,7 +1635,7 @@ GameObject:
   m_Name: Building01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1200499095923019
@@ -1808,7 +1894,7 @@ GameObject:
   m_Name: Pumpjack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &1302922280783723
@@ -1827,7 +1913,7 @@ GameObject:
   m_Name: PumpJack (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &1303397615706665
@@ -1847,7 +1933,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!1 &1312345879116869
 GameObject:
@@ -1937,8 +2023,8 @@ GameObject:
   m_Name: Concrete (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 2
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1348443676996529
 GameObject:
@@ -1994,7 +2080,7 @@ GameObject:
   m_Name: Building01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1367762055463613
@@ -2087,7 +2173,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1392459847649995
 GameObject:
@@ -2372,7 +2458,7 @@ GameObject:
   m_Name: Building01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1532120889423579
@@ -2391,7 +2477,7 @@ GameObject:
   m_Name: PumpJack (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &1538084782339515
@@ -2409,8 +2495,8 @@ GameObject:
   m_Name: Concrete (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 2
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1542765036046371
 GameObject:
@@ -2634,7 +2720,7 @@ GameObject:
   m_Name: OilStorage (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1592984086040069
@@ -2655,7 +2741,7 @@ GameObject:
   m_Name: Building01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1608184256329437
@@ -2698,7 +2784,7 @@ GameObject:
   m_Name: OilStorage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1616450309821149
@@ -2789,7 +2875,7 @@ GameObject:
   m_Name: Radar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1645375394428677
@@ -2897,7 +2983,7 @@ GameObject:
   m_Name: Pumpjack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &1665519321766167
@@ -2983,8 +3069,8 @@ GameObject:
   m_Name: Concrete (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 2
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1734305487850279
 GameObject:
@@ -3002,7 +3088,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1735158306073783
 GameObject:
@@ -3115,7 +3201,7 @@ GameObject:
   m_Name: Building02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1817263084882573
@@ -3200,7 +3286,7 @@ GameObject:
   m_Name: Pumpjack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &1886421319510051
@@ -3275,8 +3361,8 @@ GameObject:
   m_Name: Concrete (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 2
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1908519147784557
 GameObject:
@@ -3369,8 +3455,8 @@ GameObject:
   m_Name: Concrete (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 4294967295
+  m_NavMeshLayer: 2
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!1 &1939845844267715
 GameObject:
@@ -3407,7 +3493,7 @@ GameObject:
   m_Name: PumpJack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!1 &1965555831150423
@@ -3523,7 +3609,7 @@ GameObject:
   m_Name: Refinery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
+  m_NavMeshLayer: 2
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4018404254679811
@@ -13524,3 +13610,54 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.10072005, y: -1.2671919, z: -0.002302289}
     m_Extent: {x: 1.6784867, y: 2.5832467, z: 1.140801}
   m_DirtyAABB: 0
+--- !u!4 &2406674087662839802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406674087662839804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.58201456, y: 1.2574832, z: 1.9899304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2406674087662839803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2406674087662839804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e76a46a567d7a946be6ea2ac0db8804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 139945148, guid: 17d6351d4bb2e3541a0b55fde77b9291, type: 3}
+  bulletPooling: {fileID: 1960216838}
+  listBulletSo:
+  - {fileID: 11400000, guid: e87623d08ce977f49b62492a3e3980d6, type: 2}
+  - {fileID: 11400000, guid: 638bfc95d3bc9244b89b09c7b010680c, type: 2}
+  - {fileID: 11400000, guid: 9c084d99cb2cbef45a7d921c54a89055, type: 2}
+  - {fileID: 11400000, guid: 8b25f7e797b512641be0f866bf683726, type: 2}
+--- !u!1 &2406674087662839804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2406674087662839802}
+  - component: {fileID: 2406674087662839803}
+  m_Layer: 0
+  m_Name: BulletSpawner
+  m_TagString: BulletSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1

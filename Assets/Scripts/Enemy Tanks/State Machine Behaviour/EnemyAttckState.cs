@@ -80,7 +80,7 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
 
         
        // enemyShootingBehaviour.ShootBullet(EnemySpawner.Instance.enemyId);
-        BulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet, this.gameObject, enemyId);
+        //BulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet, this.gameObject, enemyId);
 
     }
 
