@@ -11,10 +11,10 @@ public class BulletController
 
     public BulletController(BulletView _view, BulletModel _model)
     {
-        Debug.Log($"Bullet view From controlelr ...");
-        BulletView newView = Object.Instantiate(_view);
+        Debug.Log($"Controller get setted for =  {_view.gameObject.name}");
+       // BulletView newView = GameObject.Instantiate(_view);
       
-        view = newView;
+        view = _view;
         model = _model;
         bulletRb = view.gameObject.GetComponent<Rigidbody>();
         if (bulletRb == null)

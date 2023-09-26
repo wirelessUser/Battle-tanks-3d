@@ -11,15 +11,15 @@ public class BulletView : MonoBehaviour, IDestroyObject
 
     public GameObject owner;
     public int OwnerId;
-   
-
-    public void SetOwner(GameObject _owner,int _OwnerId)  //## i am checking collsion in the bulletView script (if any obejct implements ITakedamge() interface
+    public PlayerBullet bulletType;
+  //  public PlayerBullet bulletTypePlayer;
+    public void SetOwner(GameObject _owner,int _OwnerId, PlayerBullet _bulletType)  //## i am checking collsion in the bulletView script (if any obejct implements ITakedamge() interface
                                              //then bullet will give damage to it ,But i want to make sure that Bullet dont give damage to it's Spanwer(Player Or Enemy).
                                              // So i am Setting the reference of the Spawner  here from the BulletSpawenr Script.
     {
         OwnerId = _OwnerId;
         owner = _owner;
-
+        bulletType = _bulletType;
     }
 
     private void OnEnable()
@@ -41,7 +41,7 @@ public class BulletView : MonoBehaviour, IDestroyObject
     public IEnumerator Destroy(float time)
     {
         yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        PlayerBulletPoolingScript.Instance.DestroyBullet(bulletType, this);
     }
 
     public void SetBulletController(BulletController  _controller)
@@ -63,13 +63,19 @@ public class BulletView : MonoBehaviour, IDestroyObject
                 AchievementsManager.Instance.BulletHitCountEnemy++;
                 AchivementCollison(collision);
             }
-            Destroy(this.gameObject);
-         
+            DeactivateBulletSentBackToPool();
         }
 
-      
+
 
     }
+
+    private void DeactivateBulletSentBackToPool()
+    {
+        PlayerBulletPoolingScript.Instance.DestroyBullet(bulletType, this);
+        this.gameObject.SetActive(false);
+    }
+
 
     private void AchivementCollison(Collision collision)
     {
@@ -78,7 +84,7 @@ public class BulletView : MonoBehaviour, IDestroyObject
 
             AchievementsManager.Instance.CheckBulletAchivementUnlock(this.OwnerId, collision.gameObject.GetComponent<EnemyView>().enemyType);
 
-            Destroy(this.gameObject);
+            DeactivateBulletSentBackToPool();
         }
     }
 

@@ -15,6 +15,8 @@ public class PlayerTankModel
     public float movementSpeed { get; private set ; }
 
     public int id { get; private set; }
+
+
     public void SetController(PlayerTankController _tankController)
     {
         tankController = _tankController;

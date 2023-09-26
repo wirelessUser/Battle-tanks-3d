@@ -14,4 +14,6 @@ public class PlayerScriptableObject : ScriptableObject
     public float damage;
     public float movementSpeed;
     
+   
+    
 }
