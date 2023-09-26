@@ -7,9 +7,7 @@ public class EnemyController
     public EnemyView view;
     public EnemyModel model;
 
-    //public List<int> spawnPointList;
-
-    //public List<int> EnemySpawnList;
+   
   
     public  EnemyController(EnemyView _view, EnemyModel _model)
     {
@@ -21,5 +19,17 @@ public class EnemyController
 
     }
 
-   
+    //public void ShootBullet(BulletEnum bulletType,  Transform spawnPoint)
+    //{
+
+    //    if (view.gameObject != null)
+    //    {
+    //        EnemyBulletPooling.Instance.SpawnBullet(bulletType, model.id, spawnPoint);
+          
+
+
+    //    }
+
+
+    //}
 }

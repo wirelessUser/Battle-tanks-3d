@@ -381,7 +381,6 @@ GameObject:
   - component: {fileID: -2430727540742116032}
   - component: {fileID: 3638657009073899955}
   - component: {fileID: 1753715888}
-  - component: {fileID: 2452126956664814004}
   - component: {fileID: -3065484967352945226}
   m_Layer: 7
   m_Name: Tank
@@ -420,7 +419,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 1
 --- !u!65 &3638657009073899955
 BoxCollider:
@@ -452,28 +451,7 @@ MonoBehaviour:
   dataSo: {fileID: 11400000, guid: 0c73298498abe0740adc56f26c5dcd41, type: 2}
   mainCam: {fileID: 0}
   rb: {fileID: -2430727540742116032}
-  bulletSpawner: {fileID: 2406674086267379875, guid: 8e68e04947fd93d4e83f27dac617d238,
-    type: 3}
   spawnPoint: {fileID: 2119818717}
-  shootingBehaviour: {fileID: 2452126956664814004}
---- !u!114 &2452126956664814004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5170878431976608312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87ccfa65f31cd204ba0c99c139569931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 2119818717}
-  bulletPrefab: {fileID: 5222268808196272008, guid: 923ae6cba78833d419b05afe5f9f15af,
-    type: 3}
-  bulletSpawner: {fileID: 2406674086267379875, guid: 8e68e04947fd93d4e83f27dac617d238,
-    type: 3}
-  playerRef: {fileID: 1753715888}
 --- !u!114 &-3065484967352945226
 MonoBehaviour:
   m_ObjectHideFlags: 0

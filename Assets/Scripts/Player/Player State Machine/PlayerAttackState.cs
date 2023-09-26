@@ -42,7 +42,7 @@
 //{
 //    public Transform spawnPoint;
 //    public GameObject bulletPrefab;
-//    public BulletSpanwer bulletSpawner;
+//    public PlayerBulletSpanwer bulletSpawner;
 
 //    public PlayerTankView playerRef;
 //    private  void Awake()

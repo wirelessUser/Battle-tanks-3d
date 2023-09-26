@@ -15,7 +15,7 @@ public class EnemyView : MonoBehaviour,IinitializeVariables
     public EnemyTankStates chasingState;
     public EnemyTankStates attackState;
     public int bulletHitCount;
-
+    public  Transform spawnPoint;
     public EnemyTankType enemyType;
     private void Awake()
     {
@@ -80,6 +80,12 @@ public class EnemyView : MonoBehaviour,IinitializeVariables
 
         currentState.OnEnemyEnterState();
     }
+
+    //public void FireBullet()
+    //{
+    //    enemyController.ShootBullet( BulletEnum.EnemyBullet, spawnPoint);
+
+    //}
 
     #region  Commented.....
     //private void OnCollisionEnter2D(Collision2D collision)

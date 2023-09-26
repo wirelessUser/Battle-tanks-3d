@@ -10,7 +10,7 @@
    
 //    public void ShootBullet()               
 //    {
-//        //BulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet,this.gameObject, enemyId);
+//        //PlayerBulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet,this.gameObject, enemyId);
       
 //    }
 

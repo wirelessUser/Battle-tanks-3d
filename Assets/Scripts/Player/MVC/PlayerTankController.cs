@@ -12,7 +12,6 @@ public class PlayerTankController
     
     public void PlayerTankControllerSetting(PlayerTankModel _model, PlayerTankView _view, PlayerTankView _playerView)
     {
-       // Debug.Log("Inside the **PlayerTankControllerSetting ");
         model = _model;
        
         view = _playerView;
@@ -20,15 +19,15 @@ public class PlayerTankController
         model.SetController(this);
         
         model.SetPlayerTankModel(view.dataSo);
-        //  PlayerTankView newView= Object.Instantiate(view.gameObject).GetComponent<PlayerTankView>();
+       
         rb = _playerView.GetComponent<Rigidbody>();
         if (rb == null)
         {
-            Debug.Log("Rigidbody is null in PlayerTankController");
+          //  Debug.Log("Rigidbody is null in PlayerTankController");
         }
         else
         {
-            Debug.Log("Rigidbody is assigned in PlayerTankController");
+          //  Debug.Log("Rigidbody is assigned in PlayerTankController");
         }
         _playerView.SetController(this);
         _playerView.gameObject.name = model.name;
@@ -54,4 +53,22 @@ public class PlayerTankController
        rb.MoveRotation(rb.rotation * rotationAngle);
 
     }
+
+
+    public void ShootBullet(PlayerBullet bulletType,int poolId,Transform spawnPoint)
+    {
+
+        if (view.gameObject != null)
+        {
+            PlayerBulletPoolingScript.Instance.SpawnBullet(bulletType,poolId,model.id, spawnPoint);
+            //bulletCount++;
+
+
+        }
+       
+
+    }
+
+
+
 }

@@ -10,7 +10,7 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
    
    // public EnemyShootingBehaviour enemyShootingBehaviour;
 
-    private BulletSpanwer bulletSpawner;
+   // private PlayerBulletSpanwer bulletSpawner;
 
     public Transform spawnPoint;
 
@@ -79,8 +79,8 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
         transform.LookAt(playerTransform);
 
         
-       // enemyShootingBehaviour.ShootBullet(EnemySpawner.Instance.enemyId);
-        //BulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet, this.gameObject, enemyId);
+       // EnemyBulletPooling.Instance.SpawnBullet(BulletEnum.EnemyBullet,enemyId,spawnPoint,this.gameObject);
+        //PlayerBulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet, this.gameObject, enemyId);
 
     }
 

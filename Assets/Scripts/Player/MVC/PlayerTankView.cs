@@ -13,14 +13,18 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     public CameraFollow mainCam;
     public Rigidbody rb;
 
-    public BulletSpanwer bulletSpawner;
+   // public PlayerBulletSpanwer bulletSpawner;
 
     public Transform spawnPoint;
 
-    public PlayerShootingBehaviour shootingBehaviour;
+   // public PlayerShootingBehaviour shootingBehaviour;
 
-   // public int playerId;
-   
+   // public BulletEnum bulletType;
+
+    private int[] poolId = new int[]
+    {
+        1,2,3
+    };
   
     private void Awake()
     {
@@ -41,7 +45,15 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            FireBullet();
+            FireBulletLowDamage();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            FireBulletHighDamage();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            FireBulletOneShotDamage();
         }
     }
 
@@ -69,14 +81,21 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 
 
 
-    public void FireBullet()        // Do i have to calling that *ShootBUllet() Method Directly from view OR Should i Call that  *ShootBullet() Method from controller And from the view
-                                    // i should call that Method of the Controller Which is calling that *ShootBulletr() Method ?
-
-        //  Means i want to ask that Sholuld i Do Every INetraction of view With External Script through the Controller ?  Or can i directly Call Other Scripts from View?
+    public void FireBulletLowDamage()       
     {
-        shootingBehaviour.ShootBullet();  
+        tankController.ShootBullet(PlayerBullet.LowDamage,poolId[0]-1, spawnPoint);  
         
     }
 
+    public void FireBulletHighDamage()
+    {
+        tankController.ShootBullet(PlayerBullet.HighDamage, poolId[1] - 1, spawnPoint);
 
+    }
+
+    public void FireBulletOneShotDamage()
+    {
+        tankController.ShootBullet(PlayerBullet.OneSHotDamage, poolId[2] - 1, spawnPoint);
+
+    }
 }
