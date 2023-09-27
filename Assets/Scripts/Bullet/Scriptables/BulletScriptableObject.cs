@@ -6,9 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="BulletScriptable",menuName = "BulletScriptable/BulletType")]
 public class BulletScriptableObject : ScriptableObject
 {
-    public BulletEnum bulletType;
+    public BulletCategory bulletcategory;
+    public int poolId;
     public string BulleteName;
-    public GameEntityTypes gameEntityType;
+    public BulletType bulletType;
     public float speed;
     public int damageCapacity;
+    public Color color;
 }

@@ -24,12 +24,12 @@ public class EnemyTankStates : MonoBehaviour, IGetComponentsInAwake
         playerTarget = PlayerTankSpawner.Instance.ReturnView();  
         playerTransform = playerTarget.GetComponent<Transform>();
         PlayerTankSpawner.Instance.OnPlayerSpawned += InitializePlayer;
-       // enemyId = tankView.GetComponent<EnemyDataScriptableObject>().id;
+   
     }
 
     public void OnEnable()
     {
-      //Debug.Log("**OnEnable()***");   
+      
 
     }
 

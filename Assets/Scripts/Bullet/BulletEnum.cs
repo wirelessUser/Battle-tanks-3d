@@ -1,13 +1,15 @@
-public enum BulletEnum
+public enum BulletType
 {
-
+    None,
     PlayerBullet,
     EnemyBullet
 }
 
-public enum PlayerBullet
+public enum BulletCategory
 {
+    None,
     LowDamage,
     HighDamage,
     OneSHotDamage
 }
+

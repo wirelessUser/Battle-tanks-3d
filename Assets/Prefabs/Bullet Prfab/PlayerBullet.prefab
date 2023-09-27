@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6692131225768408963}
   - component: {fileID: -8648951005686113527}
   m_Layer: 8
-  m_Name: High Damage
+  m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,10 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca24a46fa2c8e443918c254215b0550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSo: {fileID: 11400000, guid: 638bfc95d3bc9244b89b09c7b010680c, type: 2}
+  bulletSo: {fileID: 0}
   rb: {fileID: 6692131225768408963}
   owner: {fileID: 0}
   OwnerId: 0
+  playerBullet: 0
+  bulletType: 0
+  bulletTypePlayer: 0
 --- !u!54 &6692131225768408963
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -116,7 +119,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 48
   m_CollisionDetection: 0
 --- !u!65 &-8648951005686113527
 BoxCollider:
@@ -126,7 +129,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5222268808196272008}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.29870808, y: 0.2987081, z: 0.52526116}

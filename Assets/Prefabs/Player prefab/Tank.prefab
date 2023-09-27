@@ -452,6 +452,7 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   rb: {fileID: -2430727540742116032}
   spawnPoint: {fileID: 2119818717}
+  tankTransform: {fileID: 5170878431976902616}
 --- !u!114 &-3065484967352945226
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,14 +21,7 @@ public class PlayerTankController
         model.SetPlayerTankModel(view.dataSo);
        
         rb = _playerView.GetComponent<Rigidbody>();
-        if (rb == null)
-        {
-          //  Debug.Log("Rigidbody is null in PlayerTankController");
-        }
-        else
-        {
-          //  Debug.Log("Rigidbody is assigned in PlayerTankController");
-        }
+     
         _playerView.SetController(this);
         _playerView.gameObject.name = model.name;
     }
@@ -55,12 +48,12 @@ public class PlayerTankController
     }
 
 
-    public void ShootBullet(PlayerBullet bulletType,int poolId,Transform spawnPoint)
+    public void ShootBullet(BulletCategory playerBulletType,int poolId,Transform spawnPoint, Transform tankTransform,BulletType bulletType)
     {
 
         if (view.gameObject != null)
         {
-            PlayerBulletPoolingScript.Instance.SpawnBullet(bulletType,poolId,model.id, spawnPoint);
+            BulletService.Instance.SpawnBullet( view.gameObject, playerBulletType, poolId,model.id, spawnPoint, tankTransform,bulletType);
             //bulletCount++;
 
 

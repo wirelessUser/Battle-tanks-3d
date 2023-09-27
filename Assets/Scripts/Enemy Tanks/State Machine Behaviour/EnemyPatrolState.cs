@@ -51,7 +51,7 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
     protected void SetNewDestinationPointForEnemy()
     {
 
-      //  Debug.Log($"Setting new dstsination Points");
+      
         float randomRadius = Random.Range(PatrolMinRadius, patrolMaxradius);
         
         Vector3 dir = Random.insideUnitSphere;
@@ -61,9 +61,7 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
         NavMeshHit hit;
 
         NavMesh.SamplePosition(dir, out hit, randomRadius, NavMesh.AllAreas);
-       // Debug.Log($"hit = {hit.position}");
       
-       // cubeLocator.transform.position = hit.position;
         navMeshAgent.SetDestination(hit.position);
 
 
