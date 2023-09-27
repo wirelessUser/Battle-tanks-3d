@@ -16,6 +16,7 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
 
     public int enemyId;
     public EnemyTankType enemyTankType;
+    private int poolid = 3;
     public void SetIdAndTankType(int _enemyId, EnemyTankType _enemyTankType)
     {
         enemyId = _enemyId;
@@ -79,8 +80,8 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
         transform.LookAt(playerTransform);
 
         
-       // EnemyBulletPooling.Instance.SpawnBullet(BulletEnum.EnemyBullet,enemyId,spawnPoint,this.gameObject);
-        //PlayerBulletSpanwer.Instance.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet, this.gameObject, enemyId);
+        BulletService.Instance.SpawnBullet(gameObject,  BulletCategory.None, poolid,enemyId,spawnPoint,gameObject.transform ,BulletType.EnemyBullet); 
+       
 
     }
 

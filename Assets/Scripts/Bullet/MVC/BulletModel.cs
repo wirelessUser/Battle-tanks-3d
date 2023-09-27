@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletModel 
 {
-    private  BulletEnum bulletType;
+    private  BulletType bulletType;
 
     private BulletScriptableObject data;
 

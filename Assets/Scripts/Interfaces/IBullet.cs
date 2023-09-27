@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBulletSpawn 
 {
-    public void SpawnBullet(Transform spawnPoint, BulletEnum bulletType, GameObject owner, int OwnerId);
+    public void SpawnBullet(Transform spawnPoint, BulletType bulletType, GameObject owner, int OwnerId);
 }

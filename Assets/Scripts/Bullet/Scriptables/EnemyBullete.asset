@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32d8947547fc9a4e8580231f7eb0b49, type: 3}
   m_Name: EnemyBullete
   m_EditorClassIdentifier: 
-  bulletType: 1
+  bulletcategory: 0
+  poolId: 4
   BulleteName: EnemyBullete
-  gameEntityType: 1
+  bulletType: 2
   speed: 500
   damageCapacity: 30
+  color: {r: 0.8018868, g: 0.14751692, b: 0.14751692, a: 0}

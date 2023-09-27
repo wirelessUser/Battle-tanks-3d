@@ -51,7 +51,7 @@ public class GenericObjectPooling<T>
     {
         GameObject newItem = GameObject.Instantiate(objectToPool);
         newItem.transform.SetParent(parent);
-        newItem.SetActive(false);
+       newItem.SetActive(false);
         T newpooleditem = newItem.GetComponent<T>();
         ObjectPoolQue.Enqueue(newpooleditem);
         return ObjectPoolQue.Dequeue();

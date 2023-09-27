@@ -13,13 +13,9 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     public CameraFollow mainCam;
     public Rigidbody rb;
 
-   // public PlayerBulletSpanwer bulletSpawner;
 
-    public Transform spawnPoint;
+    public Transform spawnPoint,  tankTransform;
 
-   // public PlayerShootingBehaviour shootingBehaviour;
-
-   // public BulletEnum bulletType;
 
     private int[] poolId = new int[]
     {
@@ -83,19 +79,19 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 
     public void FireBulletLowDamage()       
     {
-        tankController.ShootBullet(PlayerBullet.LowDamage,poolId[0]-1, spawnPoint);  
+        tankController.ShootBullet(BulletCategory.LowDamage,poolId[0]-1, spawnPoint, tankTransform, BulletType.PlayerBullet);  
         
     }
 
     public void FireBulletHighDamage()
     {
-        tankController.ShootBullet(PlayerBullet.HighDamage, poolId[1] - 1, spawnPoint);
+        tankController.ShootBullet(BulletCategory.HighDamage, poolId[1] - 1, spawnPoint, tankTransform, BulletType.PlayerBullet); 
 
     }
 
     public void FireBulletOneShotDamage()
     {
-        tankController.ShootBullet(PlayerBullet.OneSHotDamage, poolId[2] - 1, spawnPoint);
+        tankController.ShootBullet(BulletCategory.OneSHotDamage, poolId[2] - 1, spawnPoint, tankTransform, BulletType.PlayerBullet);
 
     }
 }
