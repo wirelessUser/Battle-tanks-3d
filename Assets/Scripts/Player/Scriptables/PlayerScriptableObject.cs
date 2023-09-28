@@ -13,7 +13,8 @@ public class PlayerScriptableObject : ScriptableObject
     public int health;
     public float damage;
     public float movementSpeed;
-    
+
+    public int[] bulletPool = new int[3];
+
    
-    
 }

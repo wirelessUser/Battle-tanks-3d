@@ -16,12 +16,15 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 
     public Transform spawnPoint,  tankTransform;
 
+    public Slider healthSlider;
+    public float maxhealth;
+    public float currentHealth;
 
     private int[] poolId = new int[]
     {
         1,2,3
     };
-  
+
     private void Awake()
     {
         GetComponenetsInAwake();
@@ -39,18 +42,24 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
        tankController.Move(horizontalInput); 
         tankController.Rotation(verticleInput);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            FireBulletLowDamage();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            FireBulletHighDamage();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            FireBulletOneShotDamage();
-        }
+        //if (gameObject != null)
+        //{
+            
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Shooting Playwr......");
+                /*tankController.*/FireBulletLowDamage(/*spawnPoint*/);
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                /*tankController.*/FireBulletHighDamage(/*spawnPoint*/);
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                /*tankController.*/FireBulletOneShotDamage(/*spawnPoint*/);
+            }
+        //}
+        
     }
 
     public void SetController(PlayerTankController _tankController)     // Controller is Seeting those value So tankController of TankView can Be Initilaized.
@@ -73,19 +82,19 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
         
     }
 
-  
 
 
 
-    public void FireBulletLowDamage()       
+
+    public void FireBulletLowDamage()
     {
-        tankController.ShootBullet(BulletCategory.LowDamage,poolId[0]-1, spawnPoint, tankTransform, BulletType.PlayerBullet);  
-        
+        tankController.ShootBullet(BulletCategory.LowDamage, poolId[0] - 1, spawnPoint, tankTransform, BulletType.PlayerBullet);
+
     }
 
     public void FireBulletHighDamage()
     {
-        tankController.ShootBullet(BulletCategory.HighDamage, poolId[1] - 1, spawnPoint, tankTransform, BulletType.PlayerBullet); 
+        tankController.ShootBullet(BulletCategory.HighDamage, poolId[1] - 1, spawnPoint, tankTransform, BulletType.PlayerBullet);
 
     }
 

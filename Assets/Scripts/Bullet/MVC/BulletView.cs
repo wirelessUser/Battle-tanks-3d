@@ -13,52 +13,41 @@ public class BulletView : MonoBehaviour, IDestroyObject
     public int OwnerId;
     public BulletCategory bulletCategory;
     public BulletType bulletType;
-    public string bulletName;
-    public Material mat;
-
-    private void Awake()
-    {
-        mat = GetComponent<MeshRenderer>().material;
-    }
+    private string bulletName;
+    public MeshRenderer mesh;
+    public int selfDestructionTime;
+    //public BulletScriptableObject BulletSo
+    //{
+    //    get { return bulletSo; }
+    //    set { value = bulletSo; }
+    //}
     public void SetOwner(GameObject _owner,int _OwnerId,BulletScriptableObject _bulletSo)  //## i am checking collsion in the bulletView script (if any obejct implements ITakedamge() interface                                           //then bullet will give damage to it ,But i want to make sure that Bullet dont give damage to it's Spanwer(Player Or Enemy)                                        // So i am Setting the reference of the Spawner  here from the BulletSpawenr Script.
     {
-
+        bulletSo = _bulletSo;
         Debug.Log("SetOwner  Called.....");
         OwnerId = _OwnerId;
         owner = _owner;
-        bulletSo = _bulletSo;
+       
         bulletCategory = bulletSo.bulletcategory;
         bulletName = bulletSo.BulleteName;
 
         bulletType = bulletSo.bulletType;
         bulletCategory = _bulletSo.bulletcategory;
-        mat.color = bulletSo.color;
-
+        mesh.material.color = bulletSo.color;
+        selfDestructionTime = bulletSo.selfDestructionTime;
     }
 
     
 
 
-    private void OnEnable()
-    {
-        // AchievementsManager.Instance.EnemeyBulletHitAchivementUnlock += CheckBulletAchivementUnlock; 
-
-    }
-
-
-    private void OnDisable()
-    {
-       // AchievementsManager.Instance.EnemeyBulletHitAchivementUnlock -= CheckBulletAchivementUnlock;
-
-    }
     private void Start()
     {
-        StartCoroutine(Destroy(5));
+        StartCoroutine(Destroy(selfDestructionTime));
     }
     public IEnumerator Destroy(float time)
     {
         yield return new WaitForSeconds(time);
-       // PlayerBulletPoolingScript.Instance.DestroyBullet(playerBullet, this);
+       
 
         if (bulletType == BulletType.PlayerBullet)
         {
@@ -72,7 +61,7 @@ public class BulletView : MonoBehaviour, IDestroyObject
 
     public void SetBulletController(BulletController  _controller)
     {
-        Debug.Log("&&&&&Bullets Controler Set By View&&&&");
+       
         controller = _controller;
     }
 

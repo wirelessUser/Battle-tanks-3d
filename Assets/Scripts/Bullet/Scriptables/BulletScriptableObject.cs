@@ -13,4 +13,5 @@ public class BulletScriptableObject : ScriptableObject
     public float speed;
     public int damageCapacity;
     public Color color;
+    public int selfDestructionTime;
 }

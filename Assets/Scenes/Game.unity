@@ -13525,4 +13525,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 638bfc95d3bc9244b89b09c7b010680c, type: 2}
   - {fileID: 11400000, guid: 9c084d99cb2cbef45a7d921c54a89055, type: 2}
   - {fileID: 11400000, guid: e87623d08ce977f49b62492a3e3980d6, type: 2}
-  Poolgenerated: 0
+  bulletSpeed: 10

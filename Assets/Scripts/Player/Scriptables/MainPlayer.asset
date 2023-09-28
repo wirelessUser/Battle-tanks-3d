@@ -18,4 +18,5 @@ MonoBehaviour:
   playerId: 5
   health: 100
   damage: 20
-  movementSpeed: 900
+  movementSpeed: 30
+  bulletPool: 010000000200000003000000

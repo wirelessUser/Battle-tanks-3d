@@ -100,11 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSo: {fileID: 0}
   rb: {fileID: 6692131225768408963}
-  owner: {fileID: 0}
-  OwnerId: 0
-  playerBullet: 0
-  bulletType: 0
-  bulletTypePlayer: 0
+  mesh: {fileID: 5222268808194339144}
 --- !u!54 &6692131225768408963
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -53,6 +53,8 @@ public class EnemyAttckState : EnemyTankStates, IinitializeVariables
     public override void Update()
     {
         base.Update();
+
+
         Attack();
     }
     private void Attack()

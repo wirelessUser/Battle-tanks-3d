@@ -18,11 +18,12 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
     public float patrolSpeed;
  
     private Transform cubeLocator;
-
+    
 
     public override void Awake()
     {
-        base.Awake();   
+        base.Awake();
+       
     }
     public override void OnEnemyEnterState()
     {

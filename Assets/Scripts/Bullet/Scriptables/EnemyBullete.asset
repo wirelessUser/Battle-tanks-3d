@@ -16,6 +16,7 @@ MonoBehaviour:
   poolId: 4
   BulleteName: EnemyBullete
   bulletType: 2
-  speed: 500
+  speed: 20
   damageCapacity: 30
   color: {r: 0.8018868, g: 0.14751692, b: 0.14751692, a: 0}
+  selfDestructionTime: 0
