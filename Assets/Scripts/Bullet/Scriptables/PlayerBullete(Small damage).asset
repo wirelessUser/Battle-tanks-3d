@@ -16,6 +16,7 @@ MonoBehaviour:
   poolId: 1
   BulleteName: PlayerSmall Damage Bullete
   bulletType: 1
-  speed: 600
+  speed: 15
   damageCapacity: 5
   color: {r: 1, g: 0.81974876, b: 0, a: 1}
+  selfDestructionTime: 5

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour,ITakeDamage
+public class EnemyHealth : MonoBehaviour
 {
     public GameObject explosionPrefab;
     [Range(10, 100)]
@@ -41,17 +41,17 @@ public class EnemyHealth : MonoBehaviour,ITakeDamage
 
 
 
-    public void TakeDamage( float damageAmount)
-    {
-        bulletHit++;
-        currentHealth -= damageAmount;
-        if (currentHealth <= 0)
-        {
-            Death();
+    //public void TakeDamage( float damageAmount)
+    //{
+    //    bulletHit++;
+    //    currentHealth -= damageAmount;
+    //    if (currentHealth <= 0)
+    //    {
+    //        Death();
 
-        }
+    //    }
        
-    }
+    //}
 
   
 }

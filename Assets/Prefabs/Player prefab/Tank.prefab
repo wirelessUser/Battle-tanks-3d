@@ -432,8 +432,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7021748, y: 1.9232297, z: 1.7869197}
-  m_Center: {x: -0.013003179, y: 0.90372443, z: -0.3607285}
+  m_Size: {x: 2.1209016, y: 3.287804, z: 3.0714598}
+  m_Center: {x: -0.22236535, y: 1.5860119, z: 0.28154084}
 --- !u!114 &1753715888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,13 +446,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19fc64f63ed4054f83afa56f2a8c598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalInput: 0
-  verticleInput: 0
   dataSo: {fileID: 11400000, guid: 0c73298498abe0740adc56f26c5dcd41, type: 2}
   mainCam: {fileID: 0}
   rb: {fileID: -2430727540742116032}
   spawnPoint: {fileID: 2119818717}
   tankTransform: {fileID: 5170878431976902616}
+  maxhealth: 100
+  currentHealth: 0
+  damageAmount: 3
 --- !u!114 &-3065484967352945226
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,16 +15,15 @@ public class PlayerTankModel
     public float movementSpeed { get; private set ; }
 
     public int id { get; private set; }
-
-
+    public PlayerScriptableObject playerSo;  
     public void SetController(PlayerTankController _tankController)
     {
         tankController = _tankController;
     }
     public void SetPlayerTankModel(PlayerScriptableObject data)
     {
-       
-        name = data.name;
+        playerSo = data;
+         name = data.name;
         
         health = data.health;
         currentHealth = health;

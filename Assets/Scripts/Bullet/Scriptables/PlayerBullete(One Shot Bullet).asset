@@ -16,6 +16,7 @@ MonoBehaviour:
   poolId: 3
   BulleteName: Player One Shot Bullete
   bulletType: 1
-  speed: 600
+  speed: 15
   damageCapacity: 50
   color: {r: 1, g: 0.81974876, b: 0, a: 1}
+  selfDestructionTime: 5

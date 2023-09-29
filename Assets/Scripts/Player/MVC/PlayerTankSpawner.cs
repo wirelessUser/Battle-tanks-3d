@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
 {
     private PlayerHealth playerHealth;
@@ -11,9 +11,13 @@ public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
     public PlayerTankView playerSpawned;
 
     PlayerTankModel tankModel;
+    public CameraFollow mainCam;
+
+    public Slider healthSlider;
     public int playerId;
     public  override void Awake()
     {
+        Debug.Log("Player Awake called...."); 
         base.Awake();
         SpawnTank();
         playerId = tankModel.id;
@@ -22,12 +26,18 @@ public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
    
     private void Start()
     {
+        Debug.Log("Player Start called....");
         if (playerSpawned != null)
         {
             this.PlayerSpwnedEvent();
         }
     }
 
+
+    private void OnEnable()
+    {
+        Debug.Log("Player OnEnable called....");
+    }
     public PlayerHealth ReturnPlayerHealth()
     {
        
