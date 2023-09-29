@@ -28,17 +28,7 @@ public class BulletService : EventManager<BulletService>
 
         }
     }
-    //private void Start()
-    //{
-    //    for (int i = 0; i < 4; i++)
-    //    {
-    //        playerGenericBulletPool[i] = new GenericObjectPooling<BulletView>();
-    //        playerGenericBulletPool[i].CreatePool(view.gameObject, parent[i], bulletPoolCount);
-
-
-    //    }
-    //}
-
+   
 
 
     public BulletScriptableObject GetScriptableObejct(int poolId)
@@ -54,7 +44,7 @@ public class BulletService : EventManager<BulletService>
         newBulletView.gameObject.SetActive(true);
         if (Poolgenerated == false)
         {
-            newBulletView.bulletSo = GetScriptableObejct(poolId);
+            newBulletView.BulletSo = GetScriptableObejct(poolId);
             BulletModel newBulletModel = new BulletModel(GetScriptableObejct(poolId));
 
             BulletController newController = new BulletController(newBulletView, newBulletModel);
@@ -84,9 +74,8 @@ public class BulletService : EventManager<BulletService>
         newBulletView.gameObject.transform.localRotation = tankTransform.localRotation;
         newBulletView.gameObject.SetActive(true);
 
-        newBulletView.GetComponent<Rigidbody>().velocity = tankTransform.forward*20 ;
+        newBulletView.GetComponent<Rigidbody>().velocity = tankTransform.forward*30 ;
 
-        //freezing the roataion To avoid Rotation issue.............................................
-        // newBulletView.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        
     }
 }

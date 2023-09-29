@@ -49,39 +49,24 @@ public class PlayerTankController
     }
 
 
-    public void ShootBullet(BulletCategory playerBulletType, int poolId, Transform spawnPoint, Transform tankTransform, BulletType bulletType)
+
+
+
+
+    public void FireBulletLowDamage(Transform spawnPoint)
     {
-
-        if (view.gameObject != null)
-        {
-            BulletService.Instance.SpawnBullet(view.gameObject, playerBulletType, poolId, model.id, spawnPoint, tankTransform, bulletType);
-        }
-     
-
-
-
+        BulletService.Instance.SpawnBullet(view.gameObject, BulletCategory.LowDamage, model.playerSo.bulletPool[0] - 1, model.id, spawnPoint, tankTransform, BulletType.PlayerBullet);
     }
 
+    public void FireBulletHighDamage(Transform spawnPoint)
+    {
+        BulletService.Instance.SpawnBullet(view.gameObject, BulletCategory.HighDamage, model.playerSo.bulletPool[1] - 1, model.id, spawnPoint, tankTransform, BulletType.PlayerBullet);
+    }
 
-
-    //bulletCount++;
-    //public void FireBulletLowDamage(Transform spawnPoint)
-    //{
-    //    tankController.ShootBullet(BulletCategory.LowDamage, model.playerSo.bulletPool[0] - 1, spawnPoint, view.gameObject.transform, BulletType.PlayerBullet);
-    //    BulletService.Instance.SpawnBullet(view.gameObject, BulletCategory.LowDamage, model.playerSo.bulletPool[0] - 1, model.id, spawnPoint, tankTransform, BulletType.PlayerBullet);
-    //}
-
-    //public void FireBulletHighDamage(Transform spawnPoint)
-    //{
-    //    tankController.ShootBullet(BulletCategory.HighDamage, model.playerSo.bulletPool[0] - 1, spawnPoint, view.gameObject.transform, BulletType.PlayerBullet);
-    //    BulletService.Instance.SpawnBullet(view.gameObject, BulletCategory.HighDamage, model.playerSo.bulletPool[1] - 1, model.id, spawnPoint, tankTransform, BulletType.PlayerBullet);
-    //}
-
-    //public void FireBulletOneShotDamage(Transform spawnPoint)
-    //{
-    //    tankController.ShootBullet(BulletCategory.OneSHotDamage, model.playerSo.bulletPool[0] - 1, spawnPoint, view.gameObject.transform, BulletType.PlayerBullet);
-    //    BulletService.Instance.SpawnBullet(view.gameObject, BulletCategory.OneSHotDamage, model.playerSo.bulletPool[2] - 1, model.id, spawnPoint, tankTransform, BulletType.PlayerBullet);
-    //}
+    public void FireBulletOneShotDamage(Transform spawnPoint)
+    {
+        BulletService.Instance.SpawnBullet(view.gameObject, BulletCategory.OneSHotDamage, model.playerSo.bulletPool[2] - 1, model.id, spawnPoint, tankTransform, BulletType.PlayerBullet);
+    }
 
 
 

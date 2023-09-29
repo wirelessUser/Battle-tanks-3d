@@ -6,5 +6,8 @@ public interface ITakeDamage
 {
 
 
-    public void TakeDamage( float damageAmount);
+  //  public void TakeDamage( float damageAmount);
+    public void TakeDamage();
 }
+
+

@@ -6,21 +6,21 @@ public class BulletView : MonoBehaviour, IDestroyObject
 {
     public BulletController controller;
 
-    public BulletScriptableObject bulletSo;
+    private BulletScriptableObject bulletSo;
     public Rigidbody rb;
 
-    public GameObject owner;
-    public int OwnerId;
-    public BulletCategory bulletCategory;
-    public BulletType bulletType;
+    private GameObject owner;
+    private int OwnerId;
+    private BulletCategory bulletCategory;
+    private BulletType bulletType;
     private string bulletName;
     public MeshRenderer mesh;
-    public int selfDestructionTime;
-    //public BulletScriptableObject BulletSo
-    //{
-    //    get { return bulletSo; }
-    //    set { value = bulletSo; }
-    //}
+    private int selfDestructionTime;
+    public BulletScriptableObject BulletSo
+    {
+        get { return bulletSo; }
+        set { value = bulletSo; }
+    }
     public void SetOwner(GameObject _owner,int _OwnerId,BulletScriptableObject _bulletSo)  //## i am checking collsion in the bulletView script (if any obejct implements ITakedamge() interface                                           //then bullet will give damage to it ,But i want to make sure that Bullet dont give damage to it's Spanwer(Player Or Enemy)                                        // So i am Setting the reference of the Spawner  here from the BulletSpawenr Script.
     {
         bulletSo = _bulletSo;
@@ -71,10 +71,14 @@ public class BulletView : MonoBehaviour, IDestroyObject
         {
             if (collision.gameObject.GetComponent<EnemyView>() != null)
             {
+                GiveDamageToOpponent(collision);
                 AchievementsManager.Instance.BulletHitCountEnemy++;
                 AchivementCollison(collision);
             }
-
+            if (collision.gameObject.GetComponent<PlayerTankView>() != null)
+            {
+                GiveDamageToOpponent(collision);
+            }
 
             if (bulletType == BulletType.PlayerBullet)
             {
@@ -89,9 +93,14 @@ public class BulletView : MonoBehaviour, IDestroyObject
 
     }
 
+    private  void GiveDamageToOpponent(Collider collision)
+    {
+        ITakeDamage damageOpposite = collision.GetComponent<ITakeDamage>();
+        damageOpposite.TakeDamage();
+    }
 
 
-    
+
     private void DeactivateBulletSentBackToEnemyPool()
     {
         BulletService.Instance.DestroyBullet(bulletSo.poolId - 1, this);

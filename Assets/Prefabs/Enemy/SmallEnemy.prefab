@@ -224,9 +224,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -900,8 +900,12 @@ MonoBehaviour:
   chasingState: {fileID: 3980017037274089901}
   attackState: {fileID: 4232451828467309250}
   bulletHitCount: 0
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 1962358364}
   enemyType: 2
+  healthSlider: {fileID: 990151095626002463}
+  maxhealth: 100
+  currentHealth: 0
+  damageAmount: 1
 --- !u!114 &4232451828467309250
 MonoBehaviour:
   m_ObjectHideFlags: 0

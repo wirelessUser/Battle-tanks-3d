@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ParticleSystemJobs;
-public class PlayerHealth :MonoBehaviour,ITakeDamage
+public class PlayerHealth :MonoBehaviour
 {
   
   
@@ -54,14 +54,14 @@ public class PlayerHealth :MonoBehaviour,ITakeDamage
 
   
 
-    public void TakeDamage(float damageAmount)
-    {
-        currentHealth -= damageAmount;
-        if (currentHealth <= 0)
-        {
-            Death();
+    //public void TakeDamage()
+    //{
+    //    currentHealth -= damageAmount;
+    //    if (currentHealth <= 0)
+    //    {
+    //        Death();
 
-        }
+    //    }
        
-    }
+    //}
 }

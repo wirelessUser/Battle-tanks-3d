@@ -19,4 +19,4 @@ MonoBehaviour:
   speed: 15
   damageCapacity: 20
   color: {r: 1, g: 0.81974876, b: 0, a: 1}
-  selfDestructionTime: 0
+  selfDestructionTime: 5
